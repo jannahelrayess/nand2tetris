@@ -1,0 +1,11 @@
+class Mia {
+    field int age;
+    field String name;
+
+    constructor Mia new(int x, String y) {
+        let age = x;
+        let name = y;
+        do intro();
+        return this; 
+    }
+}

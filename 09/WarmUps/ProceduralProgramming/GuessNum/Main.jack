@@ -1,0 +1,30 @@
+class Main {
+    function void main() {
+        var int n;
+        var int g;
+        let n = Keyboard.readInt("Guess a number between 0 and 100: ");
+        let g = 0;
+        while (g < 11) {
+            //let n = Keyboard.readInt("Guess a number between 0 and 100: ");
+            if (n = 51) {
+                do Output.printString("correct");
+                do Output.printString(" ");
+                let g = 11;
+            }
+            if (n < 51) {
+                do Output.printString("too low");
+                do Output.printString(" "); 
+                let g = g + 1;
+                do Main.main();
+            }
+            if (n > 51) {
+                do Output.printString("too high"); 
+                do Output.printString(" ");
+                let g = g + 1;
+                do Main.main();
+            }
+        }
+        return;
+        //issue with not stopping if wrong then right 
+    }
+}

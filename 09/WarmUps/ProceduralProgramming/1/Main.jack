@@ -1,0 +1,13 @@
+class Main {
+    function void main() {
+        var int n;
+        let n = Keyboard.readInt("Put in a number: ");
+        if (((n - 1)/2) = (n/2)) {
+            do Output.printString("Odd");
+        }
+        else {
+            do Output.printString("Even"); 
+        }
+        return;
+    }
+}

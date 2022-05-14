@@ -1,0 +1,28 @@
+// Main.jack
+// Jannah El-Rayess 
+// 03.05.22
+
+/** Initializes a new Draw and Game inorder to run the Game. */
+class Main {
+    function void main() {
+        
+        var Game game;
+        var Draw draw;
+        var int n;
+        var boolean LR;
+        var int counter;
+
+        let draw = Draw.new();
+        let LR = false;
+        let game = Game.new(draw, LR, counter);
+
+        do Output.printString("For cute animals: press p, c, m, e, d, s. To quit: press q.");
+        do Output.println();
+        let n = Keyboard.readInt("Put in a totally random super cool number: ");
+        
+        do game.run(n);
+        do game.dispose();
+        
+        return;
+    }
+}

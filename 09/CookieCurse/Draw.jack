@@ -1,0 +1,253 @@
+// Draw.jack
+// Jannah El-Rayess 
+// 03.05.22
+
+/** A Draw class that holds all the methods that draw each animal/object. */
+
+class Draw {
+
+	field int dummy;
+
+	/** Constructs a new Draw object. */
+    constructor Draw new() {
+		let dummy = 0;
+        return this;
+    }
+
+	/** Disposes this draw object. */
+    method void dispose() {
+		do draw.dispose();
+		do Memory.deAlloc(this);
+		return;
+	 }
+	
+	/** Draws a pig facing the left. */ 
+    method void drawPigLeft(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2064);
+		do Memory.poke(memAddress+32, 5160);
+		do Memory.poke(memAddress+64, 9156);
+		do Memory.poke(memAddress+96, 16386);
+		do Memory.poke(memAddress+128, 16386);
+		do Memory.poke(memAddress+160, -32767);
+		do Memory.poke(memAddress+192, -32251);
+		do Memory.poke(memAddress+224, -32155);
+		do Memory.poke(memAddress+256, -32767);
+		do Memory.poke(memAddress+288, 28686);
+		do Memory.poke(memAddress+320, 8196);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+
+	/** Draws a pig facing the right. */ 	
+	method void drawPigRight(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2064);
+		do Memory.poke(memAddress+32, 5160);
+		do Memory.poke(memAddress+64, 9156);
+		do Memory.poke(memAddress+96, 16386);
+		do Memory.poke(memAddress+128, 16386);
+		do Memory.poke(memAddress+160, -32767);
+		do Memory.poke(memAddress+192, -24511);
+		do Memory.poke(memAddress+224, -22975);
+		do Memory.poke(memAddress+256, -32767);
+		do Memory.poke(memAddress+288, 28686);
+		do Memory.poke(memAddress+320, 8196);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a cat facing the right. */ 
+	method void drawCatRight(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2032);
+		do Memory.poke(memAddress+32, 14348);
+		do Memory.poke(memAddress+64, 20482);
+		do Memory.poke(memAddress+96, -24575);
+		do Memory.poke(memAddress+128, -24575);
+		do Memory.poke(memAddress+160, -18327);
+		do Memory.poke(memAddress+192, -20407);
+		do Memory.poke(memAddress+224, -24055);
+		do Memory.poke(memAddress+256, -23287);
+		do Memory.poke(memAddress+288, 22534);
+		do Memory.poke(memAddress+320, 8196);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a cat facing the left. */ 
+	method void drawCatLeft(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 4064);
+		do Memory.poke(memAddress+32, 12316);
+		do Memory.poke(memAddress+64, 16394);
+		do Memory.poke(memAddress+96, -32763);
+		do Memory.poke(memAddress+128, -32763);
+		do Memory.poke(memAddress+160, -27107);
+		do Memory.poke(memAddress+192, -28147);
+		do Memory.poke(memAddress+224, -28603);
+		do Memory.poke(memAddress+256, -28507);
+		do Memory.poke(memAddress+288, 24602);
+		do Memory.poke(memAddress+320, 8196);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a moose facing the left. */ 
+	method void drawMooseLeft(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 1632);
+		do Memory.poke(memAddress+32, 2640);
+		do Memory.poke(memAddress+64, 4680);
+		do Memory.poke(memAddress+96, 6120);
+		do Memory.poke(memAddress+128, -8185);
+		do Memory.poke(memAddress+160, -32767);
+		do Memory.poke(memAddress+192, -24571);
+		do Memory.poke(memAddress+224, 26166);
+		do Memory.poke(memAddress+256, 8193);
+		do Memory.poke(memAddress+288, 8193);
+		do Memory.poke(memAddress+320, 14350);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a moose facing the right. */ 
+	method void drawMooseRight(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 1632);
+		do Memory.poke(memAddress+32, 2640);
+		do Memory.poke(memAddress+64, 4680);
+		do Memory.poke(memAddress+96, 6120);
+		do Memory.poke(memAddress+128, -8185);
+		do Memory.poke(memAddress+160, -32767);
+		do Memory.poke(memAddress+192, -24571);
+		do Memory.poke(memAddress+224, 27750);
+		do Memory.poke(memAddress+256, -32764);
+		do Memory.poke(memAddress+288, -32764);
+		do Memory.poke(memAddress+320, 28700);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 20490);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a penguin. */ 
+	method void drawPenguin(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2016);
+		do Memory.poke(memAddress+32, 6168);
+		do Memory.poke(memAddress+64, 9636);
+		do Memory.poke(memAddress+96, 16386);
+		do Memory.poke(memAddress+128, 20466);
+		do Memory.poke(memAddress+160, 20490);
+		do Memory.poke(memAddress+192, 20490);
+		do Memory.poke(memAddress+224, -28663);
+		do Memory.poke(memAddress+256, -28687);
+		do Memory.poke(memAddress+288, -24571);
+		do Memory.poke(memAddress+320, -16381);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 16386);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a dog. */ 
+	method void drawDog(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 30702);
+		do Memory.poke(memAddress+32, -26599);
+		do Memory.poke(memAddress+64, 25638);
+		do Memory.poke(memAddress+96, 16770);
+		do Memory.poke(memAddress+128, 20466);
+		do Memory.poke(memAddress+160, 20490);
+		do Memory.poke(memAddress+192, 20490);
+		do Memory.poke(memAddress+224, -28663);
+		do Memory.poke(memAddress+256, -28687);
+		do Memory.poke(memAddress+288, -24571);
+		do Memory.poke(memAddress+320, -15421);
+		do Memory.poke(memAddress+352, 18402);
+		do Memory.poke(memAddress+384, 17346);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+	
+	/** Draws a shark. */ 
+	method void drawShark(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2016);
+		do Memory.poke(memAddress+32, 6168);
+		do Memory.poke(memAddress+64, 8196);
+		do Memory.poke(memAddress+96, 8196);
+		do Memory.poke(memAddress+128, 20466);
+		do Memory.poke(memAddress+160, 21850);
+		do Memory.poke(memAddress+192, 20490);
+		do Memory.poke(memAddress+224, -25943);
+		do Memory.poke(memAddress+256, -28687);
+		do Memory.poke(memAddress+288, -24571);
+		do Memory.poke(memAddress+320, -16381);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 16386);
+		do Memory.poke(memAddress+416, 8196);
+		do Memory.poke(memAddress+448, 5064);
+		do Memory.poke(memAddress+480, 3120);
+		return;
+	}
+
+	/** Draws a cookie. */ 
+	method void drawCookie(int location) {
+		var int memAddress;
+		let memAddress = 16384+location;
+		do Memory.poke(memAddress+0, 2016);
+		do Memory.poke(memAddress+32, 6168);
+		do Memory.poke(memAddress+64, 8196);
+		do Memory.poke(memAddress+96, 22578);
+		do Memory.poke(memAddress+128, 22578);
+		do Memory.poke(memAddress+160, -32767);
+		do Memory.poke(memAddress+192, -32767);
+		do Memory.poke(memAddress+224, -20479);
+		do Memory.poke(memAddress+256, -20287);
+		do Memory.poke(memAddress+288, -32575);
+		do Memory.poke(memAddress+320, -32767);
+		do Memory.poke(memAddress+352, 16386);
+		do Memory.poke(memAddress+384, 16434);
+		do Memory.poke(memAddress+416, 8244);
+		do Memory.poke(memAddress+448, 6168);
+		do Memory.poke(memAddress+480, 2016);
+		return;
+	}
+}

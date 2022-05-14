@@ -1,0 +1,72 @@
+/*
+* Alien.jack
+* Dr. Iwerks
+* 2020-02-26
+*
+* An Alien class inspired by the classic video game Space Invaders.
+*/
+
+class Alien {
+    
+    field int energy;
+
+    constructor Alien new() {
+        let energy = 1000;
+        return this;
+    }
+
+    method int getEnergy() {
+        return energy;
+    }
+
+    method void loseEnergy() {
+        let energy = energy - 1;
+        return;
+    }
+
+    /** Frame A of the animation */
+    method void drawA(int location) {
+	    var int memAddress;
+        let memAddress = 16384+location;
+	    do Memory.poke(memAddress+0, 0);
+	    do Memory.poke(memAddress+32, 0);
+	    do Memory.poke(memAddress+64, 0);
+	    do Memory.poke(memAddress+96, 1632);
+	    do Memory.poke(memAddress+128, 960);
+	    do Memory.poke(memAddress+160, 2016);
+	    do Memory.poke(memAddress+192, 1440);
+	    do Memory.poke(memAddress+224, 4080);
+	    do Memory.poke(memAddress+256, 960);
+	    do Memory.poke(memAddress+288, 1632);
+	    do Memory.poke(memAddress+320, 7224);
+	    do Memory.poke(memAddress+352, 0);
+	    do Memory.poke(memAddress+384, 0);
+	    do Memory.poke(memAddress+416, 0);
+	    do Memory.poke(memAddress+448, 0);
+	    do Memory.poke(memAddress+480, 0);
+	    return;
+    }
+
+    /** Frame B of the animation */
+    method void drawB(int location) {
+        var int memAddress;
+        let memAddress = 16384+location;
+	    do Memory.poke(memAddress+0, 0);
+	    do Memory.poke(memAddress+32, 0);
+	    do Memory.poke(memAddress+64, 1056);
+	    do Memory.poke(memAddress+96, 576);
+	    do Memory.poke(memAddress+128, 960);
+	    do Memory.poke(memAddress+160, 2016);
+	    do Memory.poke(memAddress+192, 1440);
+	    do Memory.poke(memAddress+224, 2016);
+	    do Memory.poke(memAddress+256, 3024);
+	    do Memory.poke(memAddress+288, 576);
+	    do Memory.poke(memAddress+320, 1632);
+	    do Memory.poke(memAddress+352, 3120);
+	    do Memory.poke(memAddress+384, 0);
+	    do Memory.poke(memAddress+416, 0);
+	    do Memory.poke(memAddress+448, 0);
+	    do Memory.poke(memAddress+480, 0);
+	    return;
+    }
+}

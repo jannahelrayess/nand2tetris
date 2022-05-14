@@ -1,0 +1,166 @@
+// Game.jack
+// Jannah El-Rayess 
+// 03.05.22
+
+/** A Game class that runs the Cookie Curse game. Once the user inputs a number, they are able 
+to generate any animal they would like in a random location acording to whichever key they 
+press. Once the user generates 10 animals, messages begin to pop up with every animal that 
+follows until the user hits 20 animals, in which they recieve a choclate chip cookie. After 
+22 animals, the user can only generate cookies. */
+
+class Game {
+    field Draw draw;
+    field boolean LR;
+    field int counter;
+ 
+    /** Constructs a new Game object. */
+    constructor Game new(Draw draw, boolean LR, int counter) {
+       return this;
+    }
+ 
+    /** Disposes this game object. */
+    method void dispose() {
+       do game.dispose();
+       do Memory.deAlloc(this);
+       return;
+    }
+
+   /** Alternates betwen drawing a pig that faces the left and one that faces the right. */
+    method void LRPig(int location) {
+       if (LR) {
+         do draw.drawPigLeft(location);
+         let LR = false;
+       }
+       else {
+         do draw.drawPigRight(location);
+         let LR = true;
+       }
+       return;
+    }
+
+   /** Alternates betwen drawing a cat that faces the left and one that faces the right. */
+    method void LRCat(int location) {
+      if (LR) {
+        do draw.drawCatLeft(location);
+        let LR = false;
+      }
+      else {
+        do draw.drawCatRight(location);
+        let LR = true;
+      }
+      return;
+   }
+
+   /** Alternates betwen drawing a moose that faces the left and one that faces the right. */
+   method void LRMoose(int location) {
+      if (LR) {
+        do draw.drawMooseLeft(location);
+        let LR = false;
+      }
+      else {
+        do draw.drawMooseRight(location);
+        let LR = true;
+      }
+      return;
+   }
+
+   /** Writes to the screen based on how many animals the user has drawn. At 20 animals, a 
+   cookie is drawn. */
+   method void write(int counter) {
+      if (counter = 10) {
+         do Output.printString("Well someone likes fluffy animals...");
+      }
+      if (counter = 15) {
+         do Output.println();
+         do Output.printString("Ummm...maybe you should stop...");
+      }
+      if (counter = 16) {
+         do Output.println();
+         do Output.printString("Can you even see the screen at this point?");
+      }
+      if (counter = 17) {
+         do Output.println();
+         do Output.printString("Are you seriously still here...?");
+      }
+      if (counter = 18) {
+         do Output.println();
+         do Output.printString("Do you want a cookie or something???");
+      }
+      if (counter = 19) {
+         do Output.println();
+         do Output.printString("FINE. Click once more and you get a cookie.");
+      }
+      if (counter = 20) {
+         do draw.drawCookie(4080);
+      }
+      if (counter = 21) {
+         do Output.println();
+         do Output.printString("Happy now????");
+      }
+      if (counter = 22) {
+         do Output.println();
+         do Output.printString("Wow...I guess not. Well jokes on you. Click again, I dare you.");
+      }
+      if (counter = 23) {
+         do Output.println();
+         do Output.printString("NOW YOU HAVE BEEN COOKIE CURSED!!!!");
+      }
+      return;
+   }
+ 
+    /** Runs the game: handles the user's inputs and generates certian animals accordingly. After 
+    22 animals, no more animals are created and only cookies, still using the same keys though. */
+    method void run(int n) {
+       var char key;
+       var boolean exit;
+       var int num;
+
+       let exit = false;
+
+       do Random.setSeed(n);
+
+       let key = Keyboard.keyPressed();
+       
+       while (~exit) {
+        // waits for a key to be pressed
+        while (key = 0) {
+           let key = Keyboard.keyPressed();
+        }
+        
+        let num = Random.randRange(7680);
+
+        if (num < 992) {
+           let num = num + 1024;
+        }
+      
+        if (counter < 23) {
+         if (key = 81)  { let exit = true; } // q key
+         if (key = 80)  { do LRPig(num);} // p key
+         if (key = 67)  { do LRCat(num);} // c key
+         if (key = 77)  { do LRMoose(num);} // m key
+         if (key = 69)  { do draw.drawPenguin(num);} // e key
+         if (key = 68)  { do draw.drawDog(num);} // d key
+         if (key = 83)  { do draw.drawShark(num);} // s key
+        }
+        else {
+         if (key = 81)  { let exit = true; } // q key
+         if (key = 80)  { do draw.drawCookie(num);} // p key
+         if (key = 67)  { do draw.drawCookie(num);} // c key
+         if (key = 77)  { do draw.drawCookie(num);} // m key
+         if (key = 69)  { do draw.drawCookie(num);} // e key
+         if (key = 68)  { do draw.drawCookie(num);} // d key
+         if (key = 83)  { do draw.drawCookie(num);} // s key
+        }
+
+        do write(counter);
+        let counter = counter + 1;
+
+        // waits for the key to be released
+        while (~(key = 0)) {
+           let key = Keyboard.keyPressed();
+        }
+    }
+      do draw.dispose();
+      return;
+    }
+ }

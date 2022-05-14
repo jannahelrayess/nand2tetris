@@ -1,0 +1,33 @@
+function Main.main 3
+call Alien.new 0
+pop local 0
+push constant 4080
+pop local 2
+label WHILE_EXP0
+push local 0
+call Alien.getEnergy 1
+push constant 0
+gt
+not
+if-goto WHILE_END0
+push local 0
+push local 2
+call Alien.drawA 2
+pop temp 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+push local 0
+push local 2
+call Alien.drawB 2
+pop temp 0
+push constant 1000
+call Sys.wait 1
+pop temp 0
+push local 0
+call Alien.loseEnergy 1
+pop temp 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

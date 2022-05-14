@@ -1,0 +1,22 @@
+class Main {
+    function void main() {
+        var int n;
+        let n = Keyboard.readInt("Put in a number: ");
+        while (~(n = 1)) {
+            do Output.printInt(n); 
+            do Output.printString(" ");
+            //odd
+            if (((n - 1)/2) = (n/2)) {
+                let n = (3*n) + 1;
+            }
+            //even 
+            else {
+                let n = (n/2);
+            }
+        }
+        return;
+    }
+}
+
+//CONFUSED ON SYNTAX TO ACTUALLY RUN THIS T_T
+// ../../../../../tools/JackCompiler.sh Main.jack 

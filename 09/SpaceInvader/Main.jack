@@ -1,0 +1,29 @@
+/*
+* Main.jack
+* Dr. Iwerks
+* 2022-02-26
+*
+* A simple program that illustrates animation with bitmaps. 
+*/
+
+class Main {
+    function void main() {
+        var Alien alien;
+        var int count;
+        var int loc;
+        
+        let alien = Alien.new();
+        let loc = 4080; // Centers the alien (32 * 127 + 16)
+
+        // Animate alien until it runs out of energy.
+        while (alien.getEnergy() > 0) {
+            do alien.drawA(loc);
+            do Sys.wait(1000);
+            do alien.drawB(loc);
+            do Sys.wait(1000);
+            do alien.loseEnergy();
+        }
+        
+        return;
+    }
+}
