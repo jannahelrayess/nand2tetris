@@ -1,0 +1,13 @@
+/**
+ * Not exclusive-or gate:
+ * out = (a == b)
+ */
+
+ CHIP XNor {
+    IN a, b;
+    OUT out;
+    
+    PARTS:
+    Xor(a=a, b=b, out=outab);
+    Not(in=outab, out=out);
+}
