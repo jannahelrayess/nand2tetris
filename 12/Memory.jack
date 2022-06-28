@@ -1,0 +1,74 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Memory.jack
+
+/**
+ * This library provides two services: direct access to the computer's main
+ * memory (RAM), and allocation and recycling of memory blocks. The Hack RAM
+ * consists of 32,768 words, each holding a 16-bit binary number.
+ */ 
+class Memory {
+    static Array heap;
+    static Array ram;
+    static int freeList;
+
+    /** Initializes the class. */
+    function void init() {
+        let heap = 2048; // base address of heap
+        let freeList = 2048; // base address of freeList
+        let heap[0] = 0; // next 
+        let heap[1] = 14334; // size 
+        let ram = 0;
+
+        return;
+    }
+
+    /** Returns the RAM value at the given address. */
+    function int peek(int address) {
+        return ram[address];
+    }
+
+    /** Sets the RAM value at the given address to the given value. */
+    function void poke(int address, int value) {
+        let ram[address] = value;
+        
+        return;
+    }
+
+    /** Finds an available RAM block of the given size and returns
+     *  a reference to its base address. */
+    function int alloc(int size) {
+        var int block, free;
+        let heap = freeList; // Ensure they have the same base address
+        let free = heap[1]; // Free space
+
+        // While there could be more space but so far the free space is too little (searching for first fit)
+        while (~(heap = 0) & (free < (size + 2))) {
+           let heap = heap[0]; // Points to end of freeList (no space left) 
+           let free = heap[1];
+        }
+        if (heap = 0) { // If freeList is pointing to its end give an error
+            do Sys.error(1);
+        }
+        else { // If freeList is not yet at the end
+            let heap[1] = free - size - 2; // Update the size of the freeList
+            let block = heap + free + 2 - size; // Set the base address of the segment found
+            let heap = block - 2; // New base address for heap
+            let heap[0] = 0;
+            let heap[1] = size;
+        }
+        
+        return block;
+    }
+
+    /** De-allocates the given object (cast as an array) by making
+     *  it available for future allocations. */
+    function void deAlloc(Array o) {
+        let heap = o - 2; // Update the heap base address
+        let heap[0] = freeList;
+        let freeList = heap; // Free list pointing to object segment (appending object to end of freeList)
+        
+        return;
+    }    
+}
