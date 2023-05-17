@@ -1,6 +1,4 @@
 # nand2tetris
-11th Grade
-
 All of my projects and code from the nand2tetris course that uses
 the book "The Elements of Computing Systems" by Nisan and Schocken, 
 MIT Press. These were all coded in my junior year of high school
